@@ -3,11 +3,11 @@
 
 int main()
 {
-    int q[5], front=-1, rear=-1, ch, x, i;
+    int q[5], front=-1, rear=-1, ch, x, i, n;
 
     do
     {
-        printf("\n1.Insert\n2.Delete\n3.Display\n4.Exit");
+        printf("\n1.Insert\n2.Delete\n3.Modify\n4.Display\n5.Exit");
         printf("\nEnter choice: ");
         scanf("%d",&ch);
 
@@ -48,6 +48,30 @@ int main()
                     printf("Queue Empty");
                 else
                 {
+                    if(rear>=front)
+                        n=rear-front+1;
+                    else
+                        n=5-front+rear+1;
+
+                    printf("Enter position: ");
+                    scanf("%d",&x);
+
+                    if(x<1 || x>n)
+                        printf("Invalid Position");
+                    else
+                    {
+                        printf("Enter new value: ");
+                        scanf("%d",&q[(front+x-1)%5]);
+                        printf("Modified");
+                    }
+                }
+                break;
+
+            case 4:
+                if(front==-1)
+                    printf("Queue Empty");
+                else
+                {
                     i=front;
 
                     while(1)
@@ -62,7 +86,7 @@ int main()
                 }
                 break;
 
-            case 4:
+            case 5:
                 printf("Exit");
                 break;
 
@@ -70,7 +94,7 @@ int main()
                 printf("Wrong choice");
         }
     }
-    while(ch!=4);
+    while(ch!=5);
 
     return 0;
 }
