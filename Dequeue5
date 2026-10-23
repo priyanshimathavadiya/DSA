@@ -9,7 +9,7 @@ int main()
     {
         printf("\n1.Insert Front\n2.Insert Rear");
         printf("\n3.Delete Front\n4.Delete Rear");
-        printf("\n5.Display\n6.Exit");
+        printf("\n5.Modify\n6.Display\n7.Exit");
         printf("\nEnter choice: ");
         scanf("%d",&ch);
 
@@ -81,11 +81,22 @@ int main()
                 if(front==-1)
                     printf("Queue Empty");
                 else
+                {
+                    printf("Enter new value: ");
+                    scanf("%d",&q[front]);
+                    printf("Modified");
+                }
+                break;
+
+            case 6:
+                if(front==-1)
+                    printf("Queue Empty");
+                else
                     for(i=front;i<=rear;i++)
                         printf("%d ",q[i]);
                 break;
 
-            case 6:
+            case 7:
                 printf("Exit");
                 break;
 
@@ -93,7 +104,7 @@ int main()
                 printf("Wrong choice");
         }
     }
-    while(ch!=6);
+    while(ch!=7);
 
     return 0;
 }
