@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -74,36 +75,44 @@ int main()
                 break;
 
             case 3:
-                printf("Enter old value: ");
-                scanf("%d",&x);
-
-                temp=head;
-
-                while(temp!=NULL && temp->data!=x)
-                    temp=temp->next;
-
-                if(temp==NULL)
-                    printf("Value Not Found");
-                else
-                {
-                    printf("Enter new value: ");
-                    scanf("%d",&y);
-                    temp->data=y;
-                }
-                break;
-
-            case 4:
-                temp=head;
-
                 if(head==NULL)
                     printf("List Empty");
                 else
                 {
+                    printf("Enter old value: ");
+                    scanf("%d",&x);
+
+                    temp=head;
+
+                    while(temp!=NULL && temp->data!=x)
+                        temp=temp->next;
+
+                    if(temp==NULL)
+                        printf("Value Not Found");
+                    else
+                    {
+                        printf("Enter new value: ");
+                        scanf("%d",&y);
+
+                        temp->data=y;
+                        printf("Modified");
+                    }
+                }
+                break;
+
+            case 4:
+                if(head==NULL)
+                    printf("List Empty");
+                else
+                {
+                    temp=head;
+
                     while(temp!=NULL)
                     {
                         printf("%d -> ",temp->data);
                         temp=temp->next;
                     }
+
                     printf("NULL");
                 }
                 break;
