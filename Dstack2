@@ -11,8 +11,9 @@ int main()
         printf("\n2.Push Stack 2");
         printf("\n3.Pop Stack 1");
         printf("\n4.Pop Stack 2");
-        printf("\n5.Display");
-        printf("\n6.Exit");
+        printf("\n5.Modify");
+        printf("\n6.Display");
+        printf("\n7.Exit");
         printf("\nEnter choice: ");
         scanf("%d",&ch);
 
@@ -55,16 +56,50 @@ int main()
                 break;
 
             case 5:
-                printf("Stack 1: ");
-                for(i=top1;i>=0;i--)
-                    printf("%d ",a[i]);
+                printf("Modify which stack (1 or 2)? ");
+                scanf("%d",&x);
 
-                printf("\nStack 2: ");
-                for(i=top2;i<10;i++)
-                    printf("%d ",a[i]);
+                if(x==1)
+                {
+                    if(top1==-1)
+                        printf("Stack 1 Empty");
+                    else
+                    {
+                        printf("Enter new value: ");
+                        scanf("%d",&a[top1]);
+                    }
+                }
+                else if(x==2)
+                {
+                    if(top2==10)
+                        printf("Stack 2 Empty");
+                    else
+                    {
+                        printf("Enter new value: ");
+                        scanf("%d",&a[top2]);
+                    }
+                }
+                else
+                    printf("Wrong choice");
                 break;
 
             case 6:
+                printf("Stack 1: ");
+                if(top1==-1)
+                    printf("Empty");
+                else
+                    for(i=top1;i>=0;i--)
+                        printf("%d ",a[i]);
+
+                printf("\nStack 2: ");
+                if(top2==10)
+                    printf("Empty");
+                else
+                    for(i=top2;i<10;i++)
+                        printf("%d ",a[i]);
+                break;
+
+            case 7:
                 printf("Exit");
                 break;
 
@@ -72,7 +107,7 @@ int main()
                 printf("Wrong choice");
         }
     }
-    while(ch!=6);
+    while(ch!=7);
 
     return 0;
 }
